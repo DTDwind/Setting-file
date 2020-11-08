@@ -1,0 +1,116 @@
+altscreen on
+defutf8 on
+defc1 off
+defflow on
+vbell off
+autodetach on
+startup_message off
+shell $SHELL
+shelltitle '% |Working'
+termcapinfo xterm* ti@:te@
+#mousetrack on
+#defmousetrack on
+
+# button status bar
+caption always "%{=u .w}  %-w%<%{=ub .B}%n %t%{=u .w}%+w "
+hardstatus alwaysignore
+hardstatus alwayslastline "%{= .K} %e@%H %=%{= .w} %Y/%m/%d%{= .m} %0c:%s "
+#backtick 1 1 1 $HOME/bin/chkmail.rb $HOME/mail/ 20 40 
+#hardstatus alwayslastline "%{= m}[%{w}%n%{m}||%{w}%t%{m}] %= %{c}%e %{y}%c %{g}%H %{r}%Y/%m/%d %{K}%l %{w}"
+defhstatus "\005t"
+hardstatus on
+
+# C + left : prev
+# C + right : next
+bindkey "^[[C" next
+bindkey "^[[D" prev
+
+bindkey "^[5C" next
+bindkey "^[5D" prev
+
+bindkey "^[O5C" next
+bindkey "^[O5D" prev
+
+bindkey "^[[1;5D" prev
+bindkey "^[[1;5C" next
+
+bindkey "^[[5D" prev
+bindkey "^[[5C" next
+
+
+# C-a b : encoding big5
+# C-a u : encoding utf8
+defencoding utf8
+# bind b encoding big5 utf8
+# bind u encoding utf8 utf8
+encoding UTF-8 UTF-8
+
+
+
+# C-a $num : move current window to number $num
+# bind 0 number 0
+# bind 1 number 1
+# bind 2 number 2
+# bind 3 number 3
+# bind 4 number 4
+# bind 5 number 5
+# bind 6 number 6
+# bind 7 number 7
+# bind 8 number 8
+# bind 9 number 9
+
+# bind Alt`~= to screen0~12
+bindkey "`" select 0
+bindkey "1" select 1
+bindkey "2" select 2
+bindkey "3" select 3
+bindkey "4" select 4
+bindkey "5" select 5
+bindkey "6" select 6
+bindkey "7" select 7
+bindkey "8" select 8
+bindkey "9" select 9
+bindkey "0" select 10
+bindkey "-" select 11
+bindkey "=" select 12
+
+# F12 : fast kill
+#bindkey "^[[24~" kill
+
+# F11 : fast change title
+#bindkey "^[[23~" title
+
+# F12 : list all windows
+#bind ' ' windowlist
+
+# 256 Color Support
+term xterm
+termcapinfo xterm "Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:MB=\E[5m:mb=\E[5m:md=\E[1m:me=\E[m:mr=\E[7m:hs:ts=\E]0;:fs=\007:ds=\E]0;bash\007"
+# termcapinfo xterm 'hs:ts=\E]0;:fs=\007:ds=\E]0;bash\007'
+
+# # allow bold colors - necessary for some reason
+attrcolor b ".I"
+attrcolor i "+b"
+
+# erase background with current bg color
+defbce on
+
+# set line number of scroll back
+defscrollback 1000
+
+# 自動開啟分頁 # https://unix.stackexchange.com/questions/74785/how-to-open-tabs-windows-in-gnu-screen-execute-commands-within-each-one
+screen -t 960
+screen -t watch
+screen -t jh87
+screen -t amd3950x
+screen -t esp2080
+screen -t kl03
+screen -t kl28
+screen -t nv3090
+screen -t nv2080
+screen -t sh87
+screen -t sota
+screen -t smil35
+screen -t test
+select 1
+stuff "watch qstat -f -u \'*\'^M"
