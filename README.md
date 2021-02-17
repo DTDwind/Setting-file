@@ -6,3 +6,5 @@
 .screenrc  下方狀態列，支援uft-8中文顯示，自動開啟常用server(不會自動登入)
 
 如要自動登入，請參考: `stuff "sshpass -p password ssh jh87^M"`
+
+我自己目前是採用金鑰登入
